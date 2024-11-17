@@ -1,0 +1,5 @@
+setup.py
+PNWColors.egg-info/PKG-INFO
+PNWColors.egg-info/SOURCES.txt
+PNWColors.egg-info/dependency_links.txt
+PNWColors.egg-info/top_level.txt

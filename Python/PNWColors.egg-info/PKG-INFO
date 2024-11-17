@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: PNWColors
+Version: 0.1
+Summary: Color palettes inspired by the Pacific Northwest, adapted from the PNWColors R package https://github.com/jakelawlor/PNWColors
+Author: Annabel Wade
+Author-email: annawade@uw.edu
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
