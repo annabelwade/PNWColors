@@ -1,6 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
+from matplotlib.colors import LinearSegmentedColormap, to_rgba_array
 
 # 1. Create the color palettes
 # ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -46,7 +46,7 @@ def pnw_palette(name, n=None, type="continuous"):
 # ::::::::::::::::::::::::::::::::::::::::::::::::::
 def print_palette(colors, name):
     plt.figure(figsize=(len(colors), 1))
-    plt.imshow([colors], aspect='auto')
+    plt.imshow(to_rgba_array(colors)[np.newaxis, :, :], aspect='auto')
     plt.axis('off')
     plt.text(len(colors) / 2, -0.5, f"{name}, n={len(colors)}", ha='center', va='center', fontsize=16, family='sans-serif')
     plt.show()

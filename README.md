@@ -10,6 +10,7 @@ helped me adjust values to ensure that all palettes are <b>color-blind safe</b> 
 Structure of the code was inspired by the [`wesanderson`](https://github.com/karthik/wesanderson) and [`LaCroixColoR`](https://github.com/johannesbjork/LaCroixColoR) packages. [See more examples on twitter.](https://twitter.com/Jake_Lawlor1/status/1192175651358330880)
 
 [Installation](#install-package)  
+[Python Setup](#python-setup)  
 [Palettes](#palettes)  
 [Functions](#building-palettes)  
 [Examples](#example-plots)  
@@ -34,6 +35,41 @@ install.packages("PNWColors")
 install.packages("devtools") 
 devtools::install_github("jakelawlor/PNWColors") 
 ```
+
+## Python Setup
+
+A Python port of the palettes lives in the [`Python/`](Python) folder. It requires Python 3; `numpy` and `matplotlib` are installed automatically.
+
+```bash
+# get the code
+git clone https://github.com/jakelawlor/PNWColors.git
+cd PNWColors
+
+# (optional) create and activate a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate      # Windows: .venv\Scripts\activate
+
+# install the package and its dependencies
+pip install ./Python
+```
+
+```python
+from PNWColors import pnw_palettes, pnw_palette, print_palette
+
+list(pnw_palettes)                                   # names of all palettes
+
+# 100 interpolated colors (default type is "continuous"); returns RGBA tuples
+pal = pnw_palette("Winter", 100)
+print_palette(pal, "Winter")                         # display with matplotlib
+
+# 5 discrete colors; returns hex strings
+bay = pnw_palette("Bay", 5, type="discrete")
+print_palette(bay, "Bay")
+```
+
+Notes:
+- `type` defaults to `"continuous"` in the Python version (the R version infers it from `n`).
+- `type="discrete"` raises an error if `n` is larger than the number of colors in the palette.
 
 ## Usage
 
