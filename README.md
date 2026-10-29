@@ -42,7 +42,7 @@ A Python port of the palettes lives in the [`Python/`](Python) folder. It requir
 
 ```bash
 # get the code
-git clone https://github.com/jakelawlor/PNWColors.git
+git clone https://github.com/annabelwade/PNWColors.git
 cd PNWColors
 
 # (optional) create and activate a virtual environment
