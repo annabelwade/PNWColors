@@ -38,7 +38,7 @@ devtools::install_github("jakelawlor/PNWColors")
 
 ## Python Setup
 
-A Python port of the palettes lives in the [`Python/`](Python) folder. It requires Python 3 plus `numpy` and `matplotlib`.
+A Python port of the palettes lives in the [`Python/`](Python) folder. It requires Python 3; `numpy` and `matplotlib` are installed automatically.
 
 ```bash
 # get the code
@@ -49,17 +49,9 @@ cd PNWColors
 python3 -m venv .venv
 source .venv/bin/activate      # Windows: .venv\Scripts\activate
 
-# install dependencies
-pip install numpy matplotlib
+# install the package and its dependencies
+pip install ./Python
 ```
-
-Then run Python from inside the `Python/` folder (or add that folder to your `PYTHONPATH`) so `PNWColors.py` can be imported:
-
-```bash
-cd Python
-```
-
-> Note: `Python/setup.py` does not currently declare `numpy`/`matplotlib` as dependencies, and in my test `pip install .` did not make `import PNWColors` work, so I recommend the folder-based setup above. You may want to verify this on your own system.
 
 ```python
 from PNWColors import pnw_palettes, pnw_palette, print_palette
@@ -70,14 +62,14 @@ list(pnw_palettes)                                   # names of all palettes
 pal = pnw_palette("Winter", 100)
 print_palette(pal, "Winter")                         # display with matplotlib
 
-# 5 discrete colors; returns hex strings, usable in e.g. matplotlib's `color=`
+# 5 discrete colors; returns hex strings
 bay = pnw_palette("Bay", 5, type="discrete")
+print_palette(bay, "Bay")
 ```
 
 Notes:
 - `type` defaults to `"continuous"` in the Python version (the R version infers it from `n`).
 - `type="discrete"` raises an error if `n` is larger than the number of colors in the palette.
-- `print_palette` currently works with the RGBA output of `"continuous"` palettes; I found it raises a `TypeError` when passed the hex strings from `"discrete"` palettes.
 
 ## Usage
 
